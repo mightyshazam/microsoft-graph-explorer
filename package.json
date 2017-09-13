@@ -6,6 +6,7 @@
     "build": "tsc -p src/",
     "build:watch": "npm run build -- -w",
     "build:aot": "ngc -p src/tsconfig-aot.json",
+    "build:docker": "cpx docker/secrets.json . --clean && npm run build:prod",
     "build:prod": "npm run build:aot && npm run rollup",
     "start": "concurrently \"npm run build:watch\" \"npm run serve\"",
     "serve": "lite-server -c=bs-config.json",
@@ -32,7 +33,8 @@
     "@angular/compiler-cli": "^4.1.2",
     "fast-csv": "2.4.0",
     "tslint": "^5.4.3",
-    "typescript": "~2.3.0"
+    "typescript": "~2.3.0",
+    "cpx": "^1.5.0"
   },
   "dependencies": {
     "@angular/animations": "^4.1.2",
@@ -47,7 +49,7 @@
     "@angular/router": "^4.1.2",
     "angular-in-memory-web-api": "^0.3.0",
     "core-js": "^2.4.1",
-    "hello": "https://github.com/dan-silver/hello.js.git",
+    "hellojs": "https://github.com/dan-silver/hello.js.git",
     "karma": "^1.7.0",
     "karma-chrome-launcher": "^2.1.0",
     "karma-cli": "^1.0.1",
